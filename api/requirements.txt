@@ -1,0 +1,33 @@
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+redis==5.0.1
+aiohttp==3.9.3
+python-multipart==0.0.6
+jellyfish==1.0.3
+metaphone==0.6
+websockets==12.0
+sqlalchemy==2.0.25
+asyncpg==0.29.0
+psycopg2-binary==2.9.9
+SpeechRecognition==3.10.1
+web3==6.14.0
+eth-account==0.11.0
+numpy==1.26.3
+httpx==0.26.0
+pytest==7.4.4
+pytest-asyncio==0.23.3
+
+# ── New: Grid systems (S2 Geometry + H3 Hexagonal) ──
+s2sphere==0.2.5
+h3==3.7.7
+
+# ── New: SCOWL/corpus wordlist generation ──
+nltk==3.9.1
+
+# ── New: Load & fuzz testing ──
+locust==2.24.0
+hypothesis==6.98.1
+
+# ── New: SQLite FTS (built-in, no extra dep needed) ──
+# sqlite3 is part of Python stdlib
