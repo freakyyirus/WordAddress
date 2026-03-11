@@ -1,0 +1,44 @@
+# Open3Words — Minimal Docker Compose (Free-Tier Friendly)
+# Uses only SQLite (no PostgreSQL) and skips AI services.
+# Suitable for a single free-tier VM (1 CPU, 512MB RAM).
+
+version: '3.8'
+
+services:
+  api:
+    build: ./api
+    container_name: open3words-api
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - DEFAULT_GRID=default
+      - DEFAULT_LANG=en
+    depends_on:
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./api:/app
+      - wordlist-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  redis:
+    image: redis:7-alpine
+    container_name: open3words-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --maxmemory 64mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  wordlist-data:
