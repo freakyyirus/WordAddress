@@ -1,0 +1,10 @@
+{
+  "short_name": "Open3Words",
+  "name": "Open3Words — 3-Word Location System",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "description": "AI-powered 3-word location encoding with voice, AR, and offline support."
+}
