@@ -1,0 +1,105 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {"indexed": true, "name": "proofId", "type": "bytes32"},
+      {"indexed": true, "name": "prover", "type": "address"},
+      {"indexed": false, "name": "locationHash", "type": "bytes32"}
+    ],
+    "name": "ProofSubmitted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {"indexed": true, "name": "proofId", "type": "bytes32"},
+      {"indexed": true, "name": "witness", "type": "address"},
+      {"indexed": false, "name": "count", "type": "uint8"}
+    ],
+    "name": "ProofWitnessed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {"indexed": true, "name": "proofId", "type": "bytes32"},
+      {"indexed": false, "name": "timestamp", "type": "uint256"}
+    ],
+    "name": "ProofVerified",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {"name": "_locationHash", "type": "bytes32"},
+      {"name": "_witnessesRequired", "type": "uint8"}
+    ],
+    "name": "submitProof",
+    "outputs": [{"name": "proofId", "type": "bytes32"}],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "_proofId", "type": "bytes32"}],
+    "name": "witnessProof",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "_proofId", "type": "bytes32"}],
+    "name": "isVerified",
+    "outputs": [{"name": "", "type": "bool"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {"name": "_user", "type": "address"},
+      {"name": "_amount", "type": "uint256"}
+    ],
+    "name": "grantReputation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "", "type": "bytes32"}],
+    "name": "proofs",
+    "outputs": [
+      {"name": "locationHash", "type": "bytes32"},
+      {"name": "prover", "type": "address"},
+      {"name": "timestamp", "type": "uint256"},
+      {"name": "witnessesRequired", "type": "uint8"},
+      {"name": "witnessCount", "type": "uint8"},
+      {"name": "verified", "type": "bool"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "", "type": "address"}],
+    "name": "reputationScores",
+    "outputs": [{"name": "", "type": "uint256"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MIN_REPUTATION",
+    "outputs": [{"name": "", "type": "uint256"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "REPUTATION_REWARD",
+    "outputs": [{"name": "", "type": "uint256"}],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
