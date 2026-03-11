@@ -1,0 +1,11 @@
+name = "open3words-worker"
+main = "cloudflare_worker.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+API_ORIGIN = "https://api.open3words.example.com"
+
+# Optional: KV namespace for storing the full wordlist at the edge
+# [[kv_namespaces]]
+# binding = "WORDLIST"
+# id = "your-kv-namespace-id"
